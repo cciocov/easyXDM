@@ -549,6 +549,12 @@ function createFrame(config){
     
     frame.border = frame.frameBorder = 0;
     frame.allowTransparency = true;
+
+    // ISM: allow elements within the frame to go into fullscreen mode.
+    frame.setAttribute('allowfullscreen', 'true');
+    frame.setAttribute('webkitallowfullscreen', 'true');
+    frame.setAttribute('mozallowfullscreen', 'true');
+    
     config.container.appendChild(frame);
     
     if (config.onLoad) {
