@@ -333,6 +333,11 @@ function resolveUrl(url){
     
     // replace all // except the one in proto with /
     url = url.replace(reDoubleSlash, "$1/");
+
+    // ISM: add support for protocol-less URLs (i.e.: //example.com/...).
+    if (url.match(/^\/\//)) {
+      url = location.protocol + url;
+    }
     
     // If the url is a valid url we do nothing
     if (!url.match(/^(http||https):\/\//)) {
