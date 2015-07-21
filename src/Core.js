@@ -24,6 +24,12 @@
 // THE SOFTWARE.
 //
 
+// ISM: use correct location object when running inside a dynamically generated
+// frame.
+if (location == 'about:blank') {
+  location = window.parent.location;
+}
+
 var global = this;
 var channelId = Math.floor(Math.random() * 10000); // randomize the initial id in case of multiple closures loaded 
 var emptyFn = Function.prototype;
